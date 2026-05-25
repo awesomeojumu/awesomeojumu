@@ -2,7 +2,7 @@
 
 @section('content')
 <main>
-  <section class="page-hero section">
+  <section class="page-hero section hero-stage">
     <div class="container">
       <p class="eyebrow reveal">Conviction</p>
       <h1 class="h1 reveal">This is where everything else comes from.</h1>

@@ -1,49 +1,50 @@
 # Awesome Ojumu — Personal Website
 
-Personal site for **Ayobami Ojumu** (brand: **Awesome Ojumu**) at [awesomeojumu.com](https://awesomeojumu.com).
+**https://awesomeojumu.com** — Ayobami Ojumu (brand: Awesome Ojumu)
 
-Built on **Laravel 12** with the Planexi design system: dual themes (The Executive / The Manuscript), Playfair Display + DM Sans + DM Mono, GSAP animations, Alpine.js contact form.
+Laravel 12 · Planexi design system · GSAP · Alpine.js
 
-## Local development (XAMPP)
+## Local development
 
-1. Copy `.env.example` to `.env` and run `php artisan key:generate`
-2. Start Apache in XAMPP
-3. Open: **http://localhost/awesomeojumu/**
+```bash
+cp .env.example .env
+php artisan key:generate
+composer install
+php artisan serve
+```
 
-Routes are served through Laravel's `public/` folder via root `.htaccess`.
+Open http://127.0.0.1:8000
 
-Alternative: `php artisan serve` → http://127.0.0.1:8000
+Sessions and cache use **files** (no database required locally).
+
+## Production deploy
+
+```powershell
+composer run zip-deploy
+```
+
+Creates `Desktop\awesomeojumu-deploy.zip` for upload to your host.
+
+- **Namecheap hosting:** **[NAMECHEAP-DEPLOY.md](NAMECHEAP-DEPLOY.md)** ← start here
+- **Other hosts / VPS:** **[DEPLOY.md](DEPLOY.md)**
+
+Quick checklist:
+
+1. Document root → `public/`
+2. Copy `.env.production.example` → `.env` on server
+3. `APP_DEBUG=false`, `APP_URL=https://awesomeojumu.com`
+4. `composer install --no-dev` + `php artisan config:cache`
+5. Configure SMTP for the contact form
 
 ## Pages
 
-| Route     | Page    |
-|-----------|---------|
-| `/`       | Home    |
-| `/work`   | Work    |
-| `/faith`  | Faith   |
-| `/words`  | Words   |
-| `/contact`| Contact |
-
-## Assets
-
-- `public/css/` — design tokens, components
-- `public/js/` — theme, nav, GSAP animations, custom cursor
-
-## Contact form
-
-POST `/contact` — uses Laravel Mail. Default mailer is `log` (writes to `storage/logs/laravel.log`).
-
-For production, set in `.env`:
-
-```env
-MAIL_MAILER=smtp
-MAIL_HOST=...
-MAIL_CONTACT_TO=planexiglobalconsult@gmail.com
-```
-
-## Production (awesomeojumu.com)
-
-Point the domain document root to `public/`, or deploy the full app with root `.htaccess` redirecting to `public/`.
+| Route | Page |
+|-------|------|
+| `/` | Home |
+| `/work` | Work |
+| `/faith` | Faith |
+| `/words` | Words |
+| `/contact` | Contact |
 
 ## Planexi
 

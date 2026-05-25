@@ -2,13 +2,18 @@
 
 @section('content')
 <main>
-  <section class="home-hero section">
-    <div class="container">
+  <section class="home-hero section hero-stage">
+    <div class="hero-atmosphere" aria-hidden="true">
+      <span class="hero-glow hero-glow--1"></span>
+      <span class="hero-glow hero-glow--2"></span>
+      <span class="hero-rule"></span>
+    </div>
+    <div class="container hero-inner">
       <p class="eyebrow reveal">Ayobami Ojumu</p>
       <h1 class="hero-statement" aria-label="I am a wild card, one whose purpose is not written in stone.">
         <span class="hero-line-1" aria-hidden="true">
           @foreach (['I', 'am', 'a', 'wild', 'card,'] as $word)
-            <span class="hero-word">{{ $word }}</span>
+            <span class="hero-word @if($word === 'wild') hero-word--accent @elseif($word === 'card,') hero-word--punch @endif">{{ $word }}</span>
           @endforeach
         </span>
         <span class="line-secondary hero-line-2">one whose purpose is not written in stone.</span>
@@ -26,9 +31,10 @@
         <a href="{{ route('faith') }}" class="btn btn-outline">Read My Story</a>
       </div>
     </div>
+    <p class="hero-scroll-hint" aria-hidden="true">Scroll</p>
   </section>
 
-  <section class="section" data-stagger-section>
+  <section class="section" data-section="01" data-stagger-section>
     <div class="container">
       <div class="section-heading-wrap reveal">
         <h2 class="h1 heading-reveal">Not everything I am fits in a job description.</h2>
@@ -42,7 +48,7 @@
     </div>
   </section>
 
-  <section class="section" data-stagger-section>
+  <section class="section" data-section="02" data-stagger-section>
     <div class="container">
       <div class="section-heading-wrap reveal">
         <h2 class="h1 heading-reveal">Three lanes. One driver.</h2>
@@ -68,7 +74,7 @@
     </div>
   </section>
 
-  <section class="section" data-stagger-section>
+  <section class="section" data-section="03" data-stagger-section>
     <div class="container">
       <div class="section-heading-wrap reveal">
         <h2 class="h1 heading-reveal">A few things worth showing.</h2>

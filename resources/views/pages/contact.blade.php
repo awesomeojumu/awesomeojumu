@@ -2,7 +2,7 @@
 
 @section('content')
 <main x-data="{ submitted: false }">
-  <section class="page-hero section">
+  <section class="page-hero section hero-stage">
     <div class="container">
       <p class="eyebrow reveal">Reach out</p>
       <h1 class="h1 reveal">If something here moved you to reach out —</h1>
@@ -17,7 +17,7 @@
           <div class="contact-option reveal">
             <h3>Consulting or Build Enquiry</h3>
             <p>You have a project, a system that needs building, or an organisation that needs structuring. Tell me what you're working with.</p>
-            <p style="margin-top: 0.75rem;"><a href="mailto:planexiglobalconsult@gmail.com">planexiglobalconsult@gmail.com</a></p>
+            <p style="margin-top: 0.75rem;"><a href="mailto:{{ config('site.contact_email') }}">{{ config('site.contact_email') }}</a></p>
           </div>
           <div class="contact-option reveal">
             <h3>Faith or Community Conversation</h3>
@@ -43,7 +43,7 @@
         <div class="details-grid reveal">
           <div class="detail-item">
             <p class="eyebrow">Email</p>
-            <a href="mailto:planexiglobalconsult@gmail.com">planexiglobalconsult@gmail.com</a>
+            <a href="mailto:{{ config('site.contact_email') }}">{{ config('site.contact_email') }}</a>
           </div>
           <div class="detail-item">
             <p class="eyebrow">Phone</p>
@@ -83,7 +83,7 @@
             })
               .then(r => r.json())
               .then(data => { if (data.ok) submitted = true; else alert(data.message || data.error || 'Something went wrong.'); })
-              .catch(() => alert('Unable to send. Please email planexiglobalconsult@gmail.com directly.'));
+              .catch(() => alert('Unable to send. Please email {{ config('site.contact_email') }} directly.'));
           "
         >
           @csrf

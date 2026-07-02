@@ -1,51 +1,36 @@
-# Awesome Ojumu — Personal Website
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-**https://awesomeojumu.com** — Ayobami Ojumu (brand: Awesome Ojumu)
+## Getting Started
 
-Laravel 12 · Planexi design system · GSAP · Alpine.js
-
-## Local development
+First, run the development server:
 
 ```bash
-cp .env.example .env
-php artisan key:generate
-composer install
-php artisan serve
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-Open http://127.0.0.1:8000
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-Sessions and cache use **files** (no database required locally).
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## Production deploy
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-```powershell
-composer run zip-deploy
-```
+## Learn More
 
-Creates `Desktop\awesomeojumu-deploy.zip` for upload to your host.
+To learn more about Next.js, take a look at the following resources:
 
-- **Namecheap hosting:** **[NAMECHEAP-DEPLOY.md](NAMECHEAP-DEPLOY.md)** ← start here
-- **Other hosts / VPS:** **[DEPLOY.md](DEPLOY.md)**
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-Quick checklist:
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-1. Document root → `public/`
-2. Copy `.env.production.example` → `.env` on server
-3. `APP_DEBUG=false`, `APP_URL=https://awesomeojumu.com`
-4. `composer install --no-dev` + `php artisan config:cache`
-5. Configure SMTP for the contact form
+## Deploy on Vercel
 
-## Pages
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-| Route | Page |
-|-------|------|
-| `/` | Home |
-| `/work` | Work |
-| `/faith` | Faith |
-| `/words` | Words |
-| `/contact` | Contact |
-
-## Planexi
-
-Planexi Global Consult Limited · RC No. 9080284
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
